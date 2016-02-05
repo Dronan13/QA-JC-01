@@ -5,7 +5,7 @@ public class Intro {
 		// TODO Auto-generated method stub
 		//вывод строки в консоль 
 
-		System.out.println("My first java programm"); 
+		System.out.println("My first java programm123"); 
 
 		//объ€вление переменных 
 
