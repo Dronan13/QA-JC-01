@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><company>
+<Staff id="0002">
+<firstname>yong</firstname>
+<lastname>mook kim</lastname>
+<nickname>mkyong</nickname>
+<salary>100000</salary>
+<year>2015</year>
+<year>2015</year></Staff>
+
+<Staff id="0003">
+<firstname>yong</firstname>
+<lastname>mook kim</lastname>
+<nickname>mkyong</nickname>
+<salary>100000</salary>
+<year>2015</year>
+</Staff>
+</company>
