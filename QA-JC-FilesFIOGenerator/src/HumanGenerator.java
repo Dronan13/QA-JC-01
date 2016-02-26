@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class HumanGenerator {
 	/*
-	 * Создаем перечень безразмерных массивов 
-	 * для хранения строк из соответствующих файлов
+	 * Г‘Г®Г§Г¤Г ГҐГ¬ ГЇГҐГ°ГҐГ·ГҐГ­Гј ГЎГҐГ§Г°Г Г§Г¬ГҐГ°Г­Г»Гµ Г¬Г Г±Г±ГЁГўГ®Гў 
+	 * Г¤Г«Гї ГµГ°Г Г­ГҐГ­ГЁГї Г±ГІГ°Г®ГЄ ГЁГ§ Г±Г®Г®ГІГўГҐГІГ±ГІГўГіГѕГ№ГЁГµ ГґГ Г©Г«Г®Гў
 	 */
 	private ArrayList<HumanEntity> dataList = new ArrayList<HumanEntity>();
 	private ArrayList<String> surnameList = new ArrayList<String>();
@@ -14,10 +14,10 @@ public class HumanGenerator {
 	private ArrayList<String> maleFathersnameList = new ArrayList<String>();
 	private ArrayList<String> femaleFathersnameList = new ArrayList<String>();
 	
-	//Метод определения параметров
+	//ГЊГҐГІГ®Г¤ Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГЇГ Г°Г Г¬ГҐГІГ°Г®Гў
 	public void setData() throws FileNotFoundException{
 		
-		//для каждого стчитывает свой файл
+		//Г¤Г«Гї ГЄГ Г¦Г¤Г®ГЈГ® Г±ГІГ·ГЁГІГ»ГўГ ГҐГІ Г±ГўГ®Г© ГґГ Г©Г«
 		surnameList = FileWorker.read("Surname.txt");
 		
 		maleNameList = FileWorker.read("Name_male.txt");
@@ -29,24 +29,30 @@ public class HumanGenerator {
 	}
 	
 	public HumanEntity humanGenerate(){
-		//екземпляр класса HumanEntity
+		//ГҐГЄГ§ГҐГ¬ГЇГ«ГїГ° ГЄГ«Г Г±Г±Г  HumanEntity
 		HumanEntity he = new HumanEntity();
-		//екземпляр класса Random
+		//ГҐГЄГ§ГҐГ¬ГЇГ«ГїГ° ГЄГ«Г Г±Г±Г  Random
 		Random rnd = new Random();
-		//условие для задание пола если <0.5 то 
-		//генерируем данные для мужчины, иначе для женщины
+		//ГіГ±Г«Г®ГўГЁГҐ Г¤Г«Гї Г§Г Г¤Г Г­ГЁГҐ ГЇГ®Г«Г  ГҐГ±Г«ГЁ <0.5 ГІГ® 
+		//ГЈГҐГ­ГҐГ°ГЁГ°ГіГҐГ¬ Г¤Г Г­Г­Г»ГҐ Г¤Г«Гї Г¬ГіГ¦Г·ГЁГ­Г», ГЁГ­Г Г·ГҐ Г¤Г«Гї Г¦ГҐГ­Г№ГЁГ­Г»
 		if(rnd.nextDouble()<0.5){
 			he.setSex("male");
-			//surnameList.size() - возвращает количество элементов в surnameList
-			//rnd.nextInt(surnameList.size()) - герерирует число от 0 до surnameList.size()
-			//surnameList.get(...) - возвращает элемент surnameList от сгеренинного листа
+			//surnameList.size() - ГўГ®Г§ГўГ°Г Г№Г ГҐГІ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў Гў surnameList
+			//rnd.nextInt(surnameList.size()) - ГЈГҐГ°ГҐГ°ГЁГ°ГіГҐГІ Г·ГЁГ±Г«Г® Г®ГІ 0 Г¤Г® surnameList.size()
+			//surnameList.get(...) - ГўГ®Г§ГўГ°Г Г№Г ГҐГІ ГЅГ«ГҐГ¬ГҐГ­ГІ surnameList Г®ГІ Г±ГЈГҐГ°ГҐГ­ГЁГ­Г­Г®ГЈГ® Г«ГЁГ±ГІГ 
+			/*
+			 * int i = surnameList.size();
+			 * int j = rnd.nextInt(i);
+			 * String sur = surnameList.get(j)
+			 * he.setSurname(size);
+			 */
 			he.setSurname(surnameList.get(rnd.nextInt(surnameList.size())));
 			he.setName(maleNameList.get(rnd.nextInt(maleNameList.size())));			
 			he.setFathersname(maleFathersnameList.get(rnd.nextInt(maleFathersnameList.size())));
-			//генерируем дату
-			int day = 1+rnd.nextInt(28),//компенсация генерации 0го значения
-			month = 1+rnd.nextInt(12), //компенсация генерации 0го значения
-			year = 1960+rnd.nextInt(2000-1960); //на выходе дает минимум 1960 год и макс 2000год
+			//ГЈГҐГ­ГҐГ°ГЁГ°ГіГҐГ¬ Г¤Г ГІГі
+			int day = 1+rnd.nextInt(28),//ГЄГ®Г¬ГЇГҐГ­Г±Г Г¶ГЁГї ГЈГҐГ­ГҐГ°Г Г¶ГЁГЁ 0ГЈГ® Г§Г­Г Г·ГҐГ­ГЁГї
+			month = 1+rnd.nextInt(12), //ГЄГ®Г¬ГЇГҐГ­Г±Г Г¶ГЁГї ГЈГҐГ­ГҐГ°Г Г¶ГЁГЁ 0ГЈГ® Г§Г­Г Г·ГҐГ­ГЁГї
+			year = 1960+rnd.nextInt(2000-1960); //Г­Г  ГўГ»ГµГ®Г¤ГҐ Г¤Г ГҐГІ Г¬ГЁГ­ГЁГ¬ГіГ¬ 1960 ГЈГ®Г¤ ГЁ Г¬Г ГЄГ± 2000ГЈГ®Г¤
 			he.setBirthday(day+"."+month+"."+year);
 		}			
 		else{
@@ -62,20 +68,20 @@ public class HumanGenerator {
 		return he;
 	}
 
-	//методо создания списка из size - элементов
+	//Г¬ГҐГІГ®Г¤Г® Г±Г®Г§Г¤Г Г­ГЁГї Г±ГЇГЁГ±ГЄГ  ГЁГ§ size - ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў
 	public void dataGeneration(int size){
 		while(size!=0){
 			dataList.add(humanGenerate());
 			size--;
 		}
 	}
-	//запись в файл значений
+	//Г§Г ГЇГЁГ±Гј Гў ГґГ Г©Г« Г§Г­Г Г·ГҐГ­ГЁГ©
 	public void writeDataList(String fileName) {
 		String s;
 		StringBuilder sb= new StringBuilder();
-		//аналог for с счетчиком,
-		//цикл просто переберает все подряд объекты класс HumanEntity 
-		//хранимые в dataList
+		//Г Г­Г Г«Г®ГЈ for Г± Г±Г·ГҐГІГ·ГЁГЄГ®Г¬,
+		//Г¶ГЁГЄГ« ГЇГ°Г®Г±ГІГ® ГЇГҐГ°ГҐГЎГҐГ°Г ГҐГІ ГўГ±ГҐ ГЇГ®Г¤Г°ГїГ¤ Г®ГЎГєГҐГЄГІГ» ГЄГ«Г Г±Г± HumanEntity 
+		//ГµГ°Г Г­ГЁГ¬Г»ГҐ Гў dataList
 		for(HumanEntity he : dataList){
 			s = he.getSex()+" "+he.getSurname()+" "+he.getName()+" "+he.getFathersname()+" "+he.getBirthday();
 			sb.append(s);
